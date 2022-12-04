@@ -5,12 +5,12 @@ fun main() {
     val title = """
         
         
-        ===========================
-        =                         =
-        =   Advent of Code 2022   =
-        =    (Kotlin  edition)    =
-        =                         =
-        ===========================
+        =================================
+        =                               =
+        =      Advent of Code 2022      =
+        =       (Kotlin  edition)       =
+        =                               =
+        =================================
          
         """.trimIndent()
     var doYouWantToPrintTitle = true // a var name which not need comments
@@ -77,7 +77,6 @@ fun main() {
             }
         }
         catch (e: Exception){
-            println("\n---------- You have to type a number between zero and twenty-five ----------\n")
             doYouWantToPrintTitle = false // you don't print title after an error
         }
     }
