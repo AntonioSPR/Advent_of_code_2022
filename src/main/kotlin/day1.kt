@@ -1,6 +1,3 @@
-import java.io.File
-import java.io.InputStream
-
 // --- Day 1: Calorie Counting ---
 // Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
@@ -15,17 +12,12 @@ fun day01(){
        """.trimIndent()
     println(title)
 
-    // First read the input into a string, then solve part 1 and part 2
-    try {
-        val inputStream: InputStream = File("day01_input.txt").inputStream()
-        val inputString = inputStream.bufferedReader().use { it.readText() }
+    // Read the file with the input into a string
+    val input: String = filenameToString("day01_input.txt")
 
-        day01Part1(inputString)
-        day01Part2(inputString)
-    }
-    catch(E: Exception){
-        println("\n --------- Read file error ---------\n")
-    }
+    //  Pass the input to the functions that solve the puzzles
+    day01Part1(input)
+    day01Part2(input)
 
     // Give some time to the user to read the messages
     print( "          (Press return to continue)" )
@@ -59,7 +51,6 @@ fun day01Part1(inputString: String) {
     println(text)
 
 } // ---------------------------------------- fun day01Part1(inputString: String) {
-
 
 
 fun day01Part2(inputString: String) {
