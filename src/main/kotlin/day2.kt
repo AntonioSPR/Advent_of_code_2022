@@ -19,7 +19,7 @@ fun day02(){
 
     //  Pass the input to the functions that solve the puzzles
       day02Part1(input)
-//    day01Part2(input)
+      day02Part2(input)
 
     // Give some time to the user to read the messages
     print( "          (Press return to continue)" )
@@ -68,13 +68,49 @@ fun day02Part1(inputString: String) {
 
 
 fun day02Part2(inputString: String) {
-    //
+        // New rules!
+        // A = Rock; B = Paper; C = Scissors
+        // X means you need to lose,
+        // Y means you need to end the round in a draw, and
+        // Z means you need to win.
+        // Score:
+        // Rock = 1 point, Paper = 2 points, Scissors = 3 points
+        // Wins  6 points, Draws 3 points, Loses 0 point
+        // So the points are:
+        //  A X -> A C -> 0 + 3  // rock scissors
+        //  A Y -> A A -> 3 + 1  // rock rock
+        //  A Z -> A B -> 6 + 2  // rock paper
+        //  B X -> B A -> 0 + 1  // paper rock
+        //  B Y -> B B -> 3 + 2  // paper paper
+        //  B Z -> B C -> 6 + 3  // paper scissors
+        //  C X -> C B -> 0 + 2  // scissors paper
+        //  C Y -> C C -> 3 + 3  // scissors scissors
+        //  C Z -> C A -> 6 + 1  // scissors rock
+    val rounds = inputString.split("\n")
+    val points = mapOf(
+        "A X" to  0 + 3,  // rock scissors
+        "A Y" to  3 + 1,  // rock rock
+        "A Z" to  6 + 2,  // rock paper
+        "B X" to  0 + 1,  // paper rock
+        "B Y" to  3 + 2,  // paper paper
+        "B Z" to  6 + 3,  // paper scissors
+        "C X" to  0 + 2,  // scissors paper
+        "C Y" to  3 + 3,  // scissors scissors
+        "C Z" to  6 + 1   // scissors rock
+    )
+
+    var score = 0
+    try{
+        rounds.forEach{
+            score += points[it]!!
+        }
+    } catch (e: Exception){
+        println("There is a problem adding the scores")
+        exitProcess(42)
+    }
+
     var text = "--- Part Two ---\n"
-//    text += "The elves that carry the most calories son:\n"
-//    text += "    The $firstElf${ordinal(firstElf)} carry ${elvesSorted[0]} calories\n"
-//    text += "    The $secondElf${ordinal(secondElf)} carry ${elvesSorted[1]} calories\n"
-//    text += "    The $thirdElf${ordinal(thirdElf)} carry ${elvesSorted[2]} calories\n"
-//    text += "The first three carry $sumThreeMaxCalories calories.\n\n"
-    print(text)
+    text += "If everything goes exactly according to your NEW strategy guide, your score will be $score\n"
+    println(text)
 
 } // ---------------------------------------- fun day02Part2(inputString: String) {

@@ -16,7 +16,7 @@ fun main() {
     var doYouWantToPrintTitle = true // a var name which not need comments
 
     // A menu with instructions
-    var menu = ""
+    var menu = "\n"
     for (i in 1..25){
         menu += String.format("% 3d", i) + ".- Day" + String.format("%02d", i) + "\t\t"
         if (i % 5 == 0){
