@@ -1,5 +1,6 @@
 // Day 3: Rucksack Reorganization
 // Find sum of the priorities of items that appears in both compartments of each rucksack
+// Find sum of the priorities of items that appears in each three-Elf group.
 
 fun day03(){
     val title = """
@@ -81,36 +82,67 @@ fun String.day03Part1() {
 
 } // ---------------------------------------- fun day03Part1(inputString: String) {
 
-fun repeatedChar(s1: String, s2: String): Char {
-    for (c1 in s1.toCharArray()) {
-        for(c2 in s2.toCharArray()){
-            if (c1 == c2 ){
-                return c1
-            }
-        }
-    }
-    println("\n --------- Input data error -> The line $s1$s2 has not repeated chars ---------\n")
-    kotlin.system.exitProcess(37)
-}
 
 fun String.day03Part2() {
-    // Lowercase item types a through z have priorities  1 through 26
-    // Uppercase item types A through Z have priorities 27 through 52
+    // Find sum of the priorities of items that appears in each three-Elf group.
 
-    // 'A'.code ->  65
-    // 'Z'.code ->  90
-    // 'a'.code ->  97
-    // 'z'.code -> 122
+    var totalPriority = 0
+    val inputLines = this.lines()
 
-    //    for (c in 'a'..'z'){
-    //        println("The ascii code of $c is ${c.code}")
-    //    }
-    //    for (c in 'A'..'Z'){
-    //        println("The ascii code of $c is ${c.code}")
-    //    }
+    for (i in inputLines.indices step(3)){
+        // A group of three strings
+        val string1 = inputLines[i]
+        val string2 = inputLines[i + 1]
+        val string3 = inputLines[i + 2]
+
+        val letter: Char = repeatedChar(string1, string2, string3)
+
+        if (letter in 'a'..'z') {
+            totalPriority += letter.code - 96
+        }
+        else if (letter in 'A'..'Z') {
+            totalPriority += letter.code - 38
+        }
+        else {
+            println("\n --------- Input data error -> The group ---$string1-$string2-$string3--- ---------\n")
+            kotlin.system.exitProcess(37)
+        }
+    }
 
     var text = "--- Part Two ---\n"
-    text += this.substring(0,1)
+    text += "The total priority of the items that appears in each three-Elf group is $totalPriority"
     println(text)
 
 } // ---------------------------------------- fun day01Part1(inputString: String) {
+
+
+fun repeatedChar(s1: String, s2: String, s3: String = ""): Char {
+    if (s3==""){
+        for (c1 in s1.toCharArray()) {
+            for(c2 in s2.toCharArray()){
+                if (c1 == c2 ){
+                    return c1
+                }
+            }
+        }
+        println("\n --------- Input data error -> The line $s1$s2 has not repeated chars ---------\n")
+        kotlin.system.exitProcess(37)
+    }
+    else {
+        for (c1 in s1.toCharArray()) {
+            for(c2 in s2.toCharArray()){
+                for(c3 in s3.toCharArray()){
+                    if (c2 == c3 ){
+                        if (c1 == c2 ) {
+                            return c1
+                        }
+                    }
+                }
+            }
+        }
+        println("\n --------- Input data error -> The group ---$s1-$s2-$s3--- has not repeated chars ---------\n")
+        kotlin.system.exitProcess(38)
+    }
+}
+
+
