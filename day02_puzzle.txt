@@ -1,8 +1,8 @@
-==============================================
-=   ADVENT OF CODE 2022                      =
-=   Puzzle 01 - Day 2: Rock Paper Scissors   =
-=   https://adventofcode.com/2022            =
-==============================================
+=======================================
+=   ADVENT OF CODE 2022               =
+=   Puzzle 02 - Rock Paper Scissors   =
+=   https://adventofcode.com/2022     =
+=======================================
 
 --- Day 2: Rock Paper Scissors ---
 
