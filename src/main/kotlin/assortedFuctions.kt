@@ -26,6 +26,7 @@ fun filenameToString(fileName: String): String{
         return inputString
     }
     catch(E: Exception){
+        println("\n --- ERROR --- ERROR --- ERROR --- ERROR --- ERROR --- ERROR ---\n")
         println("\n --------- Read file error -> file $fileName NOT FOUND ---------\n")
         exitProcess(69)
     }

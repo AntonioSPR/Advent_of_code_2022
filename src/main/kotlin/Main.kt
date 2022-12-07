@@ -52,7 +52,10 @@ fun main() {
                 1 -> day01()
                 2 -> day02()
                 3 -> day03()
-                4 -> day04()
+                4 -> {
+                    day04()
+                    println("acabo de salir de day04")
+                }
                 5 -> day05()
                 6 -> day06()
                 7 -> day07()
