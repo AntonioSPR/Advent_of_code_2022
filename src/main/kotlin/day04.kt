@@ -32,18 +32,17 @@ fun String.day04Part1(){
     var totalOfPairsFullyContainedInOthers = 0
     val inputLines = this.lines()
 
-    var i = 0
     inputLines.forEach {
-        val pair_1 = it.split(',')[0]
-        val pair_2 = it.split(',')[1]
+        val pair1 = it.split(',')[0]
+        val pair2 = it.split(',')[1]
         if (
             (
-             (pair_1.split("-")[0].toInt() <=  pair_2.split("-")[0].toInt()) &&
-             (pair_1.split("-")[1].toInt() >=  pair_2.split("-")[1].toInt())
+             (pair1.split("-")[0].toInt() <=  pair2.split("-")[0].toInt()) &&
+             (pair1.split("-")[1].toInt() >=  pair2.split("-")[1].toInt())
             ) ||
             (
-             (pair_1.split("-")[0].toInt() >=  pair_2.split("-")[0].toInt()) &&
-             (pair_1.split("-")[1].toInt() <=  pair_2.split("-")[1].toInt())
+             (pair1.split("-")[0].toInt() >=  pair2.split("-")[0].toInt()) &&
+             (pair1.split("-")[1].toInt() <=  pair2.split("-")[1].toInt())
              )
         ) {
             totalOfPairsFullyContainedInOthers++
@@ -62,20 +61,18 @@ fun String.day04Part2(){
 
     var totalOfPairsOverlaped = 0
     val inputLines = this.lines()
-
-    var i = 0
     inputLines.forEach {
-        val pair_1 = it.split(',')[0]
-        val pair_2 = it.split(',')[1]
-        val pair_1_Begin = pair_1.split("-")[0].toInt()
-        val pair_1_End = pair_1.split("-")[1].toInt()
-        val pair_2_Begin = pair_2.split("-")[0].toInt()
-        val pair_2_End = pair_2.split("-")[1].toInt()
+        val pair1 = it.split(',')[0]
+        val pair2 = it.split(',')[1]
+        val pair1Begin = pair1.split("-")[0].toInt()
+        val pair1End = pair1.split("-")[1].toInt()
+        val pair2Begin = pair2.split("-")[0].toInt()
+        val pair2End = pair2.split("-")[1].toInt()
 
-        if ( pair_1_Begin in pair_2_Begin..pair_2_End ||
-             pair_1_End   in pair_2_Begin..pair_2_End ||
-             pair_2_Begin in pair_1_Begin..pair_1_End ||
-             pair_2_End   in pair_1_Begin..pair_1_End) {
+        if ( pair1Begin in pair2Begin..pair2End ||
+             pair1End   in pair2Begin..pair2End ||
+             pair2Begin in pair1Begin..pair1End ||
+             pair2End   in pair1Begin..pair1End) {
             totalOfPairsOverlaped++
         }
     }
