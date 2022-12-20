@@ -1,6 +1,6 @@
 =====================================
 =   ADVENT OF CODE 2022             =
-=   Puzzle 06 - Tuning Trouble       =
+=   Puzzle 06 - Tuning Trouble      =
 =   https://adventofcode.com/2022   =
 =====================================
 
