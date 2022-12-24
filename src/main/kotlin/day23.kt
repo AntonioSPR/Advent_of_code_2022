@@ -1,1 +1,42 @@
-fun day23(){println("\nDay23\n")}
+// --- Day 23:  ---
+//
+
+fun day23(){
+    val title = """
+        
+        ====================================
+        =      Advent  of  code  2022      =
+        =    Day 23:                         =
+        ====================================
+        
+    """.trimIndent()
+    println(title)
+
+    // Read the file with the input into a string
+    val input: String = filenameToString("day23_input.txt")
+
+    //  Pass the input to the functions that solve the puzzles
+    day23Part1(input)
+    day23Part2(input)
+
+    // Give some time to the user to read the messages
+    print( "          (Press return to continue)" )
+    readLine()
+
+} // --------------------------------------------- fun day23(){
+
+fun day23Part1(input: String) {
+    //
+    var text = "--- Part One ---\n"
+    text += "${input[0]}\n"
+    println(text)
+
+} // ---------------------------------------- fun day23Part1(input: String) {
+
+fun day23Part2(input: String) {
+    //
+    var text = "--- Part Two ---\n"
+    text += "${input[0]}\n"
+    println(text)
+
+} // ---------------------------------------- fun day23Part2(input: String) {
